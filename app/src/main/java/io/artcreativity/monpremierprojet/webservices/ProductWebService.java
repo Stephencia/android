@@ -21,7 +21,7 @@ public class ProductWebService {
     GsonBuilder builder = new GsonBuilder();
     Gson gson = builder.create();
     //L'IP est modifié selon la connexion sur laquelle nous sommes
-    String baseUrl = "http://192.168.1.140:8080/api/products";
+    String baseUrl = "http://192.168.0.100:8080/api/products";
 
     public Product createProduct(Product product) {
         RequestBody body = RequestBody.create(gson.toJson(product),
@@ -60,7 +60,7 @@ public class ProductWebService {
         RequestBody body = RequestBody.create(gson.toJson(product),
                 MediaType.get("application/json; charset=utf-8"));
         Request request = new Request.Builder()
-                .url(baseUrl+"/"+product.serverId)
+                .url(baseUrl)
                 .put(body)
                 .build();
 
